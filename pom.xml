@@ -2,27 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!-- Inherit configurations from the fm-hub parent POM -->
     <parent>
         <groupId>org.rahmasir</groupId>
         <artifactId>fm-hub</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath> <!-- Path to the parent pom.xml -->
+        <relativePath>../pom.xml</relativePath>
     </parent>
-    <groupId>org.rahmasir</groupId>
+
     <artifactId>fm-shared-lib</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>fm-shared-lib</name>
     <description>Shared library for DTOs, Enums, and Exceptions</description>
-
-    <!-- This module will be packaged as a standard JAR file -->
     <packaging>jar</packaging>
 
     <properties>
         <java.version>21</java.version>
     </properties>
-    <dependencies>
 
+    <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -30,33 +27,21 @@
         </dependency>
     </dependencies>
 
+    <!--
+      NOTE: The spring-boot-maven-plugin has been removed.
+      A shared library should be a plain JAR, not a runnable Spring Boot application.
+      This was a major source of the build issue.
+    -->
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
