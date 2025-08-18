@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/rahmasir/fm-shared-lib.svg)](https://jitpack.io/#rahmasir/fm-shared-lib)
+
 # Shared Library (fm-shared-lib)
 
 This module is a standard Java library (JAR) that contains code shared across multiple microservices in the Freelancer Market project.
@@ -30,8 +32,8 @@ Other services, like `fm-user-service` and `fm-project-service`, include this li
 ```
 
 
-### JITPACK
-you can check it here: [rahmasir/fm-shared-lib](https://jitpack.io/#rahmasir/fm-shared-lib)
+## JITPACK
+you can check it here: [rahmasir/fm-shared-lib](https://jitpack.io/#rahmasir/fm-shared-lib). I guess it doesn't work but you can use this with its parent `pom.xml` in **fm-hub**.
 
 To get this Git project into your build:
 1. Add the JitPack repository to your build file
